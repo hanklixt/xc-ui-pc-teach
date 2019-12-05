@@ -77,7 +77,7 @@
         teachplayFormVisible:false,//控制添加窗口是否显示
         teachplanList : [{
           id: 1,
-          pname: '一级 1',
+          pname: '',
           children: [{
             id: 4,
             pname: '二级 1-1',
@@ -196,8 +196,8 @@
         this.teachplanList = []
         //查询课程计划
         courseApi.findTeachplanList(this.courseid).then(res=>{
-            if(res && res.children){
-              this.teachplanList = res.children;
+            if(res && res.data.children){
+              this.teachplanList = res.data.children;
             }
 
 
@@ -208,7 +208,7 @@
       //课程id
       this.courseid = this.$route.params.courseid;
       //查询课程计划
-      // this.findTeachplan()
+      this.findTeachplan()
 
     }
   }
